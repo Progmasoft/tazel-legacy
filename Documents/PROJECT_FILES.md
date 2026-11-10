@@ -1,10 +1,10 @@
 <!-- SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com> -->
 <!-- SPDX-License-Identifier: MPL-2.0 WITH AdditionRef-Progmasoft-Exception-2.0 -->
 
-# Tala project files
+# Project files
 
 A project is described by one file, a Kotlin script that [Tazel](CLI.md) evaluates. Tazel reads it, finds the
-sources it names and starts the compiler; the compiler itself never sees a project file.
+sources it names and starts the tools that build them; those tools never see a project file.
 
 ## Discovery
 
@@ -51,7 +51,7 @@ project {
   name = "Example"
   version = "0.1.0"
   stability = Stability.STABLE // STABLE, RC, UNSTABLE, BETA, NIGHTLY, ALPHA or DEV
-  description = "A Tala project"
+  description = "An example project"
   authors("Leitwolf", "Helmut")
   defaultFeatures("TOML")
   defaultRun = "Server" // the executable `tazel run` runs when none is named; default: the only one
@@ -85,6 +85,8 @@ compiler {
   }
 }
 ```
+
+This block is for Tala targets; it sets up Talac.
 
 | Setting | Values | Default | Compiler option |
 | --- | --- | --- | --- |
@@ -217,7 +219,8 @@ sources {
 }
 ```
 
-A project has any number of executables and libraries. `name` defaults to the name of the project, so a target of a project
+The targets in `sources` are Tala targets; a project that only its plugins build needs none. A project has any number
+of executables and libraries. `name` defaults to the name of the project, so a target of a project
 without a name has to name itself; names are case-sensitive and unique within their kind. `srcDir` defaults to `Sources`.
 
 `entry` names a class by its namespace: `Example.Program`. That class provides the parameterless
@@ -373,5 +376,5 @@ review and for diffs. `--path` writes it to another file in a folder that alread
 
 ## Tool configuration
 
-`talafmt.kts`, `talalint.kts` and `tala-analyzer.kts` configure the formatter, the linter and the analyzer. Each tool uses
-its defaults when its file is absent.
+`talafmt.kts`, `talalint.kts` and `tala-analyzer.kts` configure the formatter, the linter and the analyzer of Tala
+sources. Each tool uses its defaults when its file is absent.

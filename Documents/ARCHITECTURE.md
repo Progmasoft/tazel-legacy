@@ -4,8 +4,9 @@
 # How Tazel works
 
 Tazel is one Kotlin program for the JVM. It reads a project file, decides what to compile and starts other programs to
-do the work: Talac compiles, `talafmt` formats, `talalint` lints. Tazel never links with them and shares no code with
-them; it passes arguments, waits for the exit code and moves the files they leave behind.
+do the work: Talac compiles Tala targets, `talafmt` formats, `talalint` lints, and plugins start the tools their
+blocks name. Tazel never links with them and shares no code with them; it passes arguments, waits for the exit code and
+moves the files they leave behind.
 
 This page follows one command from the terminal to the compiler and names the code that owns each step.
 

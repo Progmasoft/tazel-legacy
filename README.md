@@ -3,12 +3,14 @@
 
 # Tazel
 
-Tazel is the build system and package manager of [Tala](https://tala.run/). The name joins Tala and Bazel.
+Tazel is a build system and package manager with a Kotlin project file. It builds [Tala](https://tala.run/) targets
+with Talac, and other languages through plugins, such as C and C++ with Progmasoft.CC or a CMake project with
+Progmasoft.CMake; a project without Tala targets needs none of the Tala tools. The name joins Tala and Bazel.
 It moved from the [compiler repository](https://github.com/Progmasoft/tala) with its history on 2026-10-18.
 
-Tazel is a Kotlin program for the JVM (25 or newer). It reads the project file, finds the sources and starts the compiler,
-the formatter or the linter as separate programs: Talac, `talafmt` and `talalint`. It compiles nothing itself and shares
-no code with them.
+Tazel is a Kotlin program for the JVM (25 or newer). It reads the project file, finds the sources and starts the tools
+that build them as separate programs: Talac, `talafmt` and `talalint` for Tala targets, and the programs the steps of
+plugins name. It compiles nothing itself and shares no code with them.
 
 ```powershell
 tazel check
@@ -21,7 +23,7 @@ tazel lint -- --fix
 ## Documentation
 
 - [The `tazel` command](Documents/CLI.md): every command, target selection, workspaces, the dependency graph.
-- [Tala project files](Documents/PROJECT_FILES.md): the project file, block by block. [`BUILD.kts`](BUILD.kts) is the
+- [Project files](Documents/PROJECT_FILES.md): the project file, block by block. [`BUILD.kts`](BUILD.kts) is the
   whole DSL in one file; a test evaluates it.
 - [The lockfile](Documents/LOCKFILE.md): what `LOCK.sqlite3` records, when it is written, and its text dump.
 - [Writing a plugin](Documents/PLUGINS.md): the descriptor, the API, and how Tazel verifies and loads a plugin.
