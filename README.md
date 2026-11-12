@@ -1,7 +1,13 @@
 <!-- SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com> -->
 <!-- SPDX-License-Identifier: MPL-2.0 WITH AdditionRef-Progmasoft-Exception-2.0 -->
 
-# Tazel
+# Tazel (legacy)
+
+> **This repository is archived.** It holds the earlier Tazel, the build system of Tala, from `tazel-0.1.0` to
+> `tazel-0.4.0.3`. Tala and its tools are no longer developed (2026-11-10). Tazel starts again at 0.1.0 in
+> [Progmasoft/tazel](https://github.com/Progmasoft/tazel), as a build system and package manager for C, C++,
+> Objective-C, Objective-C++ and Zig, with `MODULE.kts` and `BUILD.kts` project files. The text below describes the
+> earlier Tazel.
 
 Tazel is a build system and package manager with a Kotlin project file. It builds [Tala](https://tala.run/) targets
 with Talac, and other languages through plugins, such as C and C++ with Progmasoft.CC or a CMake project with
